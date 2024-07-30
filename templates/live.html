@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #142335;
+        }
+        .container {
+            width: 1920px;
+            height: 1000px;
+        }
+        
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .right-card {
+            margin-top: 8px;
+            width: 470px;
+            height: 990px;
+            padding: 10px;
+            border-right: #0595EB 1px solid;
+        }
+        
+.right-section1{
+    background-color: #142335;
+    width: 441px;
+    height: 158px;
+    background:
+    radial-gradient(#f9f9f92d 4px, transparent 0px) 3px 3px,
+    radial-gradient(#f9f9f92d 4px, transparent 0px) 25px 21px,
+            #63636324;
+background-size: 36px 36px, 36px 36px;
+  border: 5px solid  #0595EB;
+border-radius: 10px;
+  box-shadow: inset 0 0 10px  #0595EB;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+  line-height: 0.5;
+}
+.right-section2{
+    margin-top: 30px;
+    background-color: #142335;
+    width: 441px;
+    height: 296px;
+    /* border: 5px solid  #0595EB; */
+border-radius: 10px;
+}
+
+.right-section3{
+    margin-top: 30px;
+    background-color: #142335;
+    width: 435px;
+    height: 339px;
+   /* border: 5px solid  #0595EB; */
+border-radius: 10px;
+}
+
+.rs-header{
+    width: 435px;
+    height: 39px;
+    background-color:  #63636324;
+    padding: 2px;
+    line-height: 0.1;
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+}
+.center-card{
+    margin-top: 8px;
+            width: 876px;
+            height: 990px;
+            border-right: #0595EB 1px solid;
+            padding: 10px;
+}
+
+.line{
+    color: #EEB015;
+}
+.block{
+    width: 12px;
+    height: 40px;
+    background-color: #0795EB;
+    margin-top: -44px;
+    margin-left: -2px;
+}
+
+.center-section1{
+    width: 100%;
+    height: 232px;
+}
+
+.cs-header{
+    width: 99%;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    border: 3px solid #EEB015;
+}
+
+.left-card{
+    margin-top: 8px;
+            width: 470px;
+            height: 990px;
+            padding-left: 26px;
+}
+.cs-main{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+    
+}
+.cs-main1 , .cs-main2{
+    line-height: 0.1;
+    text-align: center;
+    color: white;
+    border: #0595EB 2px solid;
+    width: 50%;
+}
+
+#cs-input{
+    width: 99%;
+    height: 95%;
+    font-size: 20px;
+}
+
+.cs-section2{
+    margin-top: 30px;
+    background-color: #142335;
+    width: 99%;
+    height: 70%;
+    border: 5px solid  #0595EB;
+border-radius: 2px;
+    
+}
+.btn{
+    font-size: 25px;
+}
+
+.footer{
+            font-size: 25px;
+            font-weight: 200;
+            color: #fff;
+            text-align: center;
+            background-color: #0595EB;
+            margin-top: -24px;
+            line-height: 2;
+}
+
+        /* Add your own styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="right-card">
+               <div class="right-section1">
+                <p><span class="line">// </span>即時進出人數<span class="line"> //</span> </p>
+               <p>IN: <span>{{ enterP }}</span></p>
+               <p>Out: <span>{{ exitP }}</span></p>
+               </div>
+
+               <div class="right-section2">
+                <div class="rs-header">
+
+                    <p><span class="line">// </span>派件入庫量佔比<span class="line"> //</span></p>
+                    <div class="block"></div>
+                </div>
+               </div>
+
+               <div class="right-section3">
+                <div class="rs-header">
+                    <p><span class="line">// </span>廣東省際派件數據<span class="line"> //</span></p>
+                    <div class="block"></div>
+                </div>
+               </div>
+               
+            </div>
+            <div class="center-card">
+                <div class="center-section1">
+                    <div class="cs-header">
+                        <h1>智慧物聯網設備人流碳盤查系統</h1>
+                       </div>
+                       <div class="cs-main">
+                        <div class="cs-main1">
+                            <h2 class="time" style="font-size: 40px;">16:00:38</h2>
+                            <p class="date"style="font-size:20px">2024年04月11日 星期四</p>
+                        </div>
+                        <div class="cs-main2">
+                            <input type="text" name="" id="cs-input" placeholder="請輸入活動內容.....">
+                        </div>
+                       </div>
+                      
+                </div>
+
+                <div class="cs-section2">
+                    <div class="rs-header">
+                        <p><span class="line">// </span>即時狀況<span class="line"> //</span></p>
+                        <div class="block"></div>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="left-card">
+                <div class="right-section1">
+                    <p><span class="line">// </span>使用者<span class="line"> //</span> </p>
+                <p>林佳萱</p>
+                <input type="button" value="離開系統" class="btn">
+                   </div>
+                <div class="right-section2">
+                    <div class="rs-header">
+    
+                        <p><span class="line">// </span>每小時人流數據<span class="line"> //</span></p>
+                        <div class="block"></div>
+                        
+                    </div>
+                   </div>
+                   
+                   <div class="right-section2">
+                    <div class="rs-header">
+    
+                        <p><span class="line">// </span>派件入庫量佔比<span class="line"> //</span></p>
+                        <div class="block"></div>
+                    </div>
+                   </div>
+            </div>
+
+            
+           
+            
+        </div>
+        <div class="footer">
+            <p>&copy 智慧物聯網設備人流碳盤查系統 Designer by:林佳萱、莊柏軒、吳哲緯. | 最佳顯示畫面:1920*1080
+            </p>
+        </div>
+    </div>
+</body>
+</html>
