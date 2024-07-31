@@ -27,7 +27,7 @@ socketio = SocketIO(app)
 
 counter1 = []
 counter2 = []
-
+num  = 0
 @app.route("/")
 def get_stream_html():
     return render_template('live.html')
@@ -58,16 +58,18 @@ def stop_to_yolo():
 
 @app.route("/PeopleCounting",methods=['POST'])
 def PeopleCounting():
-    global counter1, counter2, frame_to_stream
+    global counter1, counter2, frame_to_stream, num
     my_file = open("coco.txt", "r")
     data = my_file.read()
     class_list = data.split("\n")
 
     count = 0
     tracker = Tracker()
-    area1 = [(450, 394), (484, 370), (1020, 425), (1020, 459)]  # RED
-    area2 = [(407, 417), (448, 392), (1020, 460), (1020, 490)]  # GREEN
-
+    # area1 = [(450, 394), (484, 370), (1020, 425), (1020, 459)]  # RED
+    # area2 = [(407, 417), (448, 392), (1020, 460), (1020, 490)]  # GREEN
+    area1 = [(0, 394), (0, 370), (1020, 425), (1020, 459)]  # RED
+    area2 = [(0, 430), (0, 400), (1020, 480), (1020, 500)]  # GREEN
+    Co2 = 0
     people_enter = {}
     #counter1 = []
     people_exit = {}
@@ -109,6 +111,8 @@ def PeopleCounting():
                     cvzone.putTextRect(frame, f'{id}', (x3, y3), 1, 2)
                     if counter2.count(id) == 0:
                         counter2.append(id)
+                        num = num + 1
+
 
             results2 = cv2.pointPolygonTest(np.array(area2, np.int32), (x4, y4), False)
             if results2 >= 0:
@@ -121,11 +125,16 @@ def PeopleCounting():
                     if counter1.count(id) == 0:
                         counter1.append(id)
 
+
         cv2.polylines(frame, [np.array(area1, np.int32)], True, (0, 0, 255), 1)
-        cv2.polylines(frame, [np.array(area2, np.int32)], True, (0, 255, 0), 1)
+        cv2.polylines(frame,
+                      [np.array(area2, np.int32)], True, (0, 255, 0), 1)
         enterP = len(counter1)
         exitP = len(counter2)
-        Co2 = (enterP - exitP) * 0.002
+        # Co2 = (exitP - enterP) * 0.02
+        Co2 = round(exitP * 0.0008,4)
+        # Co2 = num
+
         from datetime import datetime
 
         now = datetime.now()  # current date and time

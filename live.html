@@ -246,15 +246,15 @@
             <div class="right-section2">
                 <div class="rs-header">
 
-                    <p><span class="line">// </span>目前該場域人流碳排放量<span class="line"> //</span></p>
+                    <p><span class="line">// </span>目前該場域人流累積碳排放量<span class="line"> //</span></p>
                     <div class="block">
 
                     </div>
-                    <p id="Co2" style="font-size: 40px;color: #EEB015;font-weight: bolder">{{ Co2 }}</p>
+                    <p style="font-size: 40px;color: #EEB015;font-weight: bolder"><span id="Co2" style="font-size: 40px;color: #EEB015;font-weight: bolder">{{ Co2 }}</span> Kg</p>
 
                     <div class="co2-info">
                         <p>人流碳排放量公式計算方式：<br> 碳排放量 ＝ 人數 x 人均碳排放量</p>
-                        <span style="font-size: 18px;">[名詞解釋]<br>人數：參與活動的人數 <br> 碳排放量：每人每公里步行的碳排放量約為 0.02 公斤二氧化碳(CO₂)</span>
+                        <span style="font-size: 18px;">[名詞解釋]<br>人數：參與活動的人數 <br> 碳排放量：每人每公里步行的碳排放量約為 0.008 公斤二氧化碳(CO₂e)</span>
                     </div>
                 </div>
             </div>
@@ -304,7 +304,7 @@
 
                 </div>
                 <!---web cam --->
-                <video id="video" width=1000 height="550" autoplay></video>
+                <video id="video"  autoplay style="height: 500px"></video>
                 <script src="script.js"></script>
             </div>
 
