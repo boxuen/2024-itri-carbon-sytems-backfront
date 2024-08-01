@@ -171,6 +171,61 @@
             border: white 1px solid;
         }
 
+        .logo {
+            width: 50%;
+            background-color: white;
+            padding: 10px;
+            margin: auto;
+            display: flex;
+
+        }
+
+        /* Animation property */
+        .alert {
+            animation: wiggle 2s linear infinite;
+        }
+
+        /* Keyframes */
+        @keyframes wiggle {
+            0%, 7% {
+                transform: rotateZ(0);
+            }
+            15% {
+                transform: rotateZ(-15deg);
+            }
+            20% {
+                transform: rotateZ(10deg);
+            }
+            25% {
+                transform: rotateZ(-10deg);
+            }
+            30% {
+                transform: rotateZ(6deg);
+            }
+            35% {
+                transform: rotateZ(-4deg);
+            }
+            40%, 100% {
+                transform: rotateZ(0);
+            }
+        }
+
+
+        .alert {
+
+            display: none;
+            background: #444;
+            background: linear-gradient(top, #555, #333);
+            border: none;
+            border-top: 10px solid orange;
+            border-radius: 0 0 0.2em 0.2em;
+            color: #fff;
+            font-family: Helvetica, Arial, Sans-serif;
+            font-size: 50px;
+            transform-origin: 50% 5em;
+        }
+
+
         /* Add your own styles here */
     </style>
 
@@ -228,9 +283,23 @@
             document.getElementById('enterP').innerText = data.enterP;
             document.getElementById('exitP').innerText = data.exitP;
             document.getElementById('Co2').innerText = data.Co2;
+            document.getElementById('enterP2').innerText = data.enterP2;
         });
     </script>
+    <script>
+        // 抓取 id 為 enterP 的元素
+        var enterPElement = document.getElementById('enterP2');
 
+        // 取得 enterP 的值並轉換為數字
+        var enterP2 = parseInt(enterPElement.innerText);
+
+        // 檢查 enterP 的值
+        if (enterP2 >= 1) {
+            document.getElementById('alert').style.display = 'block';
+        }
+        lementById('alert').style.display = 'block';
+        }
+    </script>
 
 </head>
 <body onload="updateTime()">
@@ -250,7 +319,9 @@
                     <div class="block">
 
                     </div>
-                    <p style="font-size: 40px;color: #EEB015;font-weight: bolder"><span id="Co2" style="font-size: 40px;color: #EEB015;font-weight: bolder">{{ Co2 }}</span> Kg</p>
+                    <p style="font-size: 40px;color: #EEB015;font-weight: bolder"><span id="Co2"
+                                                                                        style="font-size: 40px;color: #EEB015;font-weight: bolder">{{ Co2 }}</span>
+                        Kg</p>
 
                     <div class="co2-info">
                         <p>人流碳排放量公式計算方式：<br> 碳排放量 ＝ 人數 x 人均碳排放量</p>
@@ -261,9 +332,14 @@
 
             <div class="right-section3">
                 <div class="rs-header">
-                    <p><span class="line">// </span>標題名稱<span class="line"> //</span></p>
+                    <p><span class="line">// </span><span class="line"> //</span></p>
                     <div class="block"></div>
                 </div>
+                <img src="/templates/assets/stu-logo.svg" alt="stu-logo" class="logo">
+                <br>
+                <img src="/templates/assets/itri-logo.png" alt="itri-logo" class="logo">
+                <br>
+                <img src="/templates/assets/eosl_icon.jpeg" alt="" class="logo">
             </div>
 
         </div>
@@ -304,7 +380,7 @@
 
                 </div>
                 <!---web cam --->
-                <video id="video"  autoplay style="height: 500px"></video>
+                <video id="video" autoplay style="height: 500px"></video>
                 <script src="script.js"></script>
             </div>
 
@@ -320,16 +396,23 @@
             <div class="right-section2">
                 <div class="rs-header">
 
-                    <p><span class="line">// </span>每小時人流數據<span class="line"> //</span></p>
+                    <p><span class="line">// </span>目前該場域館內進場人數<span class="line"> //</span></p>
                     <div class="block"></div>
 
+                </div>
+                <p style="font-size: 40px;color: #EEB015;font-weight: bolder;text-align: center;"><span id="enterP2"
+                                                                                                        style="font-size: 40px;color: #EEB015;font-weight: bolder;text-align: center;">{{ enterP2 }}</span>
+                    人</p>
+
+                <div class="alert">
+                    警告：目前已達規定人數上限！
                 </div>
             </div>
 
             <div class="right-section2">
                 <div class="rs-header">
 
-                    <p><span class="line">// </span>派件入庫量佔比<span class="line"> //</span></p>
+                    <p><span class="line">// </span>每小時人流數據<span class="line"> //</span></p>
                     <div class="block"></div>
                 </div>
             </div>

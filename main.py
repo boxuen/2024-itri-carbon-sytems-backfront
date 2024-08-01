@@ -131,6 +131,7 @@ def PeopleCounting():
                       [np.array(area2, np.int32)], True, (0, 255, 0), 1)
         enterP = len(counter1)
         exitP = len(counter2)
+        enterP2 = exitP - enterP
         # Co2 = (exitP - enterP) * 0.02
         Co2 = round(exitP * 0.0008,4)
         # Co2 = num
@@ -160,7 +161,7 @@ def PeopleCounting():
             # 如果發生錯誤，則回滾事務
             connect_db.rollback()
             print("資料新增失敗：", e)
-        socketio.emit('update_count', {'enterP': enterP, 'exitP': exitP,'Co2':Co2})
+        socketio.emit('update_count', {'enterP': enterP, 'exitP': exitP,'Co2':Co2,'enterP2':enterP2})
 
         if cv2.waitKey(5) & 0xFF == 27:
             break
@@ -170,7 +171,7 @@ def PeopleCounting():
     cap.release()
     cv2.destroyAllWindows()
     #return "People counting completed successfully."
-    return render_template('live.html', enterP=enterP, exitP=exitP, Co2=Co2)
+    return render_template('live.html', enterP=enterP, exitP=exitP, Co2=Co2,enterP2 = enterP2)
 
 
 
